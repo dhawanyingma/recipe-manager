@@ -1,0 +1,32 @@
+[
+  {
+    "name": "Spaghetti Bolognese",
+    "ingredients": "spaghetti, ground beef, tomato sauce, onion, garlic, olive oil",
+    "instructions": "Cook pasta. Brown beef with onion and garlic. Add tomato sauce. Combine with pasta.",
+    "tags": "dinner,italian"
+  },
+  {
+    "name": "Chicken Curry",
+    "ingredients": "chicken, onion, garlic, ginger, curry powder, coconut milk",
+    "instructions": "Sauté onion, garlic, and ginger. Add chicken and curry powder. Stir in coconut milk and simmer.",
+    "tags": "dinner,spicy"
+  },
+  {
+    "name": "Pancakes",
+    "ingredients": "flour, milk, eggs, sugar, baking powder, butter",
+    "instructions": "Mix dry ingredients. Add milk and eggs. Cook on griddle with butter until golden.",
+    "tags": "breakfast,sweet"
+  },
+  {
+    "name": "Greek Salad",
+    "ingredients": "tomato, cucumber, feta cheese, olives, onion, olive oil, oregano",
+    "instructions": "Chop vegetables. Toss with olive oil and oregano. Add feta and olives.",
+    "tags": "lunch,vegetarian"
+  },
+  {
+    "name": "Grilled Cheese Sandwich",
+    "ingredients": "bread, cheddar cheese, butter",
+    "instructions": "Butter bread, add cheese, and grill until golden and melted.",
+    "tags": "snack,quick"
+  }
+]
