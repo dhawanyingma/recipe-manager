@@ -1,11 +1,18 @@
 from flask import Flask, jsonify
 from .api.routes import api
-from .models.recipe import db
+from app.db import db
+from app import models
+from flask_migrate import Migrate
 
-def create_app():
+migrate = Migrate()
+
+def create_app(config_class="config.DevConfig"): #devconfig as default
     app = Flask(__name__)
+    app.config.from_object(config_class)
 
-    #config 
+    #initialize DB + migrations
+    db.init_app(app)
+    migrate.init_app(app, db)
 
     #Register Blueprints
     app.register_blueprint(api, url_prefix="/api/v1")
