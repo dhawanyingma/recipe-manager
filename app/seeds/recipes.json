@@ -1,0 +1,32 @@
+[
+  {
+    "name": "Spaghetti Bolognese",
+    "ingredients": "Spaghetti, ground beef, onion, garlic, tomato sauce, olive oil, salt, pepper",
+    "instructions": "Cook spaghetti until al dente. In another pan, sauté onion and garlic in olive oil, add beef and cook until browned. Stir in tomato sauce, simmer 15 minutes, season, and mix with spaghetti.",
+    "tags": "italian, pasta, dinner"
+  },
+  {
+    "name": "Pancakes",
+    "ingredients": "Flour, milk, eggs, sugar, baking powder, butter",
+    "instructions": "Mix dry ingredients in one bowl and wet ingredients in another. Combine to form a batter. Cook on greased skillet until bubbles form, then flip.",
+    "tags": "breakfast, sweet"
+  },
+  {
+    "name": "Caesar Salad",
+    "ingredients": "Romaine lettuce, croutons, Parmesan cheese, Caesar dressing",
+    "instructions": "Wash and chop lettuce. Toss with croutons, Parmesan, and Caesar dressing. Serve chilled.",
+    "tags": "salad, healthy, quick"
+  },
+  {
+    "name": "Chicken Curry",
+    "ingredients": "Chicken, onion, garlic, ginger, curry powder, coconut milk, tomatoes, cilantro",
+    "instructions": "Sauté onion, garlic, and ginger. Add chicken and brown. Stir in curry powder, tomatoes, and coconut milk. Simmer until chicken is cooked. Garnish with cilantro.",
+    "tags": "indian, spicy, dinner"
+  },
+  {
+    "name": "Chocolate Chip Cookies",
+    "ingredients": "Flour, butter, sugar, brown sugar, eggs, vanilla, baking soda, salt, chocolate chips",
+    "instructions": "Cream butter and sugars. Add eggs and vanilla. Mix in dry ingredients, then fold in chocolate chips. Scoop onto baking tray and bake at 350°F for 10–12 minutes.",
+    "tags": "dessert, sweet, snack"
+  }
+]
