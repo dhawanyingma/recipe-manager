@@ -11,3 +11,7 @@ def create_recipe(data):
     db.session.add(recipe)
     db.session.commit()
     return recipe
+
+def get_all_recipes():
+    """fetch all recipes from database"""
+    return Recipe.query.all()

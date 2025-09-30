@@ -1,5 +1,5 @@
 from flask import Blueprint, jsonify, request
-from app.services.recipe_service import create_recipe
+from app.services.recipe_service import create_recipe, get_all_recipes
 
 api = Blueprint("api", __name__)
 
@@ -17,7 +17,18 @@ def create_recipe_route():
     recipe = create_recipe(data)
     return jsonify({"id":recipe.id, "name":recipe.name}), 201
 
-@api.route("/get_all_recipes", methods = ["GET"])
-def get_all_recipes():
-    
+@api.route("/recipes", methods = ["GET"])
+def get_recipes_route():
+    recipes = get_all_recipes()
+    return jsonify([
+        {
+            "id" : recipe.id,
+            "name" : recipe.name,
+            "ingredients" : recipe.ingredients,
+            "tags" : recipe.tags,
+            "created_at" : recipe.created_at,
+            "updated_at" :recipe.updated_at
+         } for recipe in recipes
+    ]), 200
+
 
