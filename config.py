@@ -10,7 +10,7 @@ BASE_DIR = os.path.abspath(os.path.dirname(__file__))
 
 class Config:
     SECRET_KEY = os.getenv("SECRET_KEY", "AFLLG")
-    SQLALCHEMY_TRACK_MODIFICATION = False
+    SQLALCHEMY_TRACK_MODIFICATIONS = False
 
 class DevConfig(Config):
     DEBUG = os.getenv("DEBUG", "True") == "True"
@@ -25,6 +25,9 @@ class TestConfig(Config):
     SQLALCHEMY_DATABASE_URI = "sqlite:///:memory:"
 
 class ProdConfig(Config):
-    DEBUG = os.getenv("DEBUG", "FALSE") == "FALSE"
-    SQLALCHEMY_DATABASE_URI = os.getenv("DATABASE_URL")
-    
+    DEBUG =  False   #os.getenv("DEBUG", "FALSE") == "FALSE"
+    # SQLALCHEMY_DATABASE_URI = os.getenv("DATABASE_URL")
+    SQLALCHEMY_DATABASE_URI = os.getenv(
+        "DATABASE_URL", 
+        f"sqlite:///{os.path.join(BASE_DIR, 'recipes.db')}"
+        )

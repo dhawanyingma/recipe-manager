@@ -42,3 +42,16 @@ def delete_recipe_service(recipe_id: int):
     db.session.delete(recipe)
     db.session.commit()
     return True
+
+def validate_recipe_data(data: dict):
+    errors = {}
+    if "name" not in data or not isinstance(data["name"], str) or len(data.get("name").strip()) <= 3:
+        errors["name"] = "Name is required and must be at least 3 characters long."
+
+    for field in ["ingredients", "instructions", "tags"]:
+        if field in data and (not isinstance(data[field], str) or not data[field].strip()):
+            errors[field] = f"{field} must be non-empty string if provided."
+
+    return errors
+        
+

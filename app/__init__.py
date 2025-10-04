@@ -3,6 +3,7 @@ from .api.routes import api
 from app.db import db
 from app import models
 from flask_migrate import Migrate
+from .errors import register_error_handlers
 
 migrate = Migrate()
 
@@ -13,6 +14,8 @@ def create_app(config_class="config.DevConfig"): #devconfig as default
     #initialize DB + migrations
     db.init_app(app)
     migrate.init_app(app, db)
+
+    print("DEBUG MODE", app.debug)
 
     #Register Blueprints
     app.register_blueprint(api, url_prefix="/api/v1")
@@ -29,5 +32,7 @@ def create_app(config_class="config.DevConfig"): #devconfig as default
                 "/api/v1/recipes"
             ]
         }), 200
+    
+    register_error_handlers(app)
 
     return app

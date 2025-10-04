@@ -1,5 +1,5 @@
 from flask import Blueprint, jsonify, request
-from app.services.recipe_service import create_recipe, get_all_recipes, get_recipe_by_id, update_recipe, delete_recipe_service
+from app.services.recipe_service import create_recipe, get_all_recipes, get_recipe_by_id, update_recipe, delete_recipe_service, validate_recipe_data
 
 api = Blueprint("api", __name__)
 
@@ -13,7 +13,16 @@ def version():
 
 @api.route("/recipes", methods=["POST"])
 def create_recipe_route():
-    data = request.get_json()
+    data = request.get_json() or {}
+    print(data)
+    errors = validate_recipe_data(data)
+    print(errors)
+    if errors:
+        return jsonify({
+            "errors" : "VALIDATION_ERROR",
+            "message" : "Invalid request data",
+            "details" : errors
+        }), 400
     recipe = create_recipe(data)
     return jsonify({"id":recipe.id, "name":recipe.name}), 201
 
