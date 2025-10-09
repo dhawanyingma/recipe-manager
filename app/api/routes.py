@@ -113,7 +113,7 @@ def get_recipes_route():
     # total count only in the first page, to give idea to the client how many exist in the first page
     total = query.count() if not last_id else None
 
-    # convert sqlalchemy objects
+    # convert sqlalchemy objects to dictionary
     recipes_data = [recipe.to_dict() for recipe in items]
 
     response = {"items": recipes_data, "limit": limit, "next_page_token": next_token}
@@ -155,3 +155,5 @@ def delete_recipe_route(recipe_id):
             404,
         )
     return f"The recipe with ID {recipe_id} is successfully deleted.", 200
+
+
