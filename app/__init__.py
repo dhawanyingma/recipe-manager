@@ -4,23 +4,31 @@ from app.db import db
 from app import models
 from flask_migrate import Migrate
 from .errors import register_error_handlers
+from app.LogUtil import LogUtil
+import logging   # ✅ Add this
 
 migrate = Migrate()
 
-def create_app(config_class="config.DevConfig"): #devconfig as default
+def create_app(config_class="config.DevConfig"):  # devconfig as default
     app = Flask(__name__)
     app.config.from_object(config_class)
 
-    #initialize DB + migrations
+    # ✅ Disable noisy Werkzeug access logs
+    logging.getLogger("werkzeug").setLevel(logging.ERROR)
+
+    # Initialize DB + migrations
     db.init_app(app)
     migrate.init_app(app, db)
 
     print("DEBUG MODE", app.debug)
 
-    #Register Blueprints
+    # Register Blueprints
     app.register_blueprint(api, url_prefix="/api/v1")
 
-    #Root route 
+    # Initialize centralized logging
+    LogUtil.init_app(app)
+
+    # Root route
     @app.route("/")
     def home():
         return jsonify({
@@ -32,7 +40,6 @@ def create_app(config_class="config.DevConfig"): #devconfig as default
                 "/api/v1/recipes"
             ]
         }), 200
-    
-    register_error_handlers(app)
 
+    register_error_handlers(app)
     return app
